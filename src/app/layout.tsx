@@ -12,9 +12,7 @@ import {
 } from "@zerodevapp/wagmi/rainbowkit";
 import {
   RainbowKitProvider,
-  connectorsForWallets,
-  darkTheme,
-  midnightTheme,
+  connectorsForWallets, 
 } from "@rainbow-me/rainbowkit";
 import {
   metaMaskWallet,
