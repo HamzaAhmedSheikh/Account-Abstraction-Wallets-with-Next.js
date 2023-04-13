@@ -1,5 +1,5 @@
-'use client'
-// import './globals.css'
+"use client";
+import './globals.css'
 import "@rainbow-me/rainbowkit/styles.css";
 import {
   googleWallet,
@@ -12,10 +12,11 @@ import {
 } from "@zerodevapp/wagmi/rainbowkit";
 import {
   RainbowKitProvider,
-  connectorsForWallets, 
+  connectorsForWallets,
 } from "@rainbow-me/rainbowkit";
 import {
   metaMaskWallet,
+  rainbowWallet,
   walletConnectWallet,
 } from "@rainbow-me/rainbowkit/wallets";
 import { configureChains, createClient, WagmiConfig } from "wagmi";
@@ -46,10 +47,11 @@ const connectors = connectorsForWallets([
     groupName: "Web3 Wallets (AA-enabled)",
     wallets: [
       enhanceWalletWithAAConnector(metaMaskWallet({ chains }), { projectId }),
-      enhanceWalletWithAAConnector(walletConnectWallet({ chains }), {
-        projectId,
-      }),
     ],
+  },
+  {
+    groupName: "EOA",
+    wallets: [rainbowWallet({ chains })],
   },
 ]);
 
@@ -59,20 +61,20 @@ const wagmiClient = createClient({
   provider,
 });
 
-
-
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html lang="en">
       <body>
-      <WagmiConfig client={wagmiClient}> 
-      <RainbowKitProvider chains={chains} coolMode> {children} </RainbowKitProvider>
-            </WagmiConfig>         
-       </body>
+        <WagmiConfig client={wagmiClient}>
+          <RainbowKitProvider chains={chains} coolMode>          
+            {children}
+          </RainbowKitProvider>
+        </WagmiConfig>
+      </body>
     </html>
-  )
+  );
 }
