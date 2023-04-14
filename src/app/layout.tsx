@@ -1,5 +1,5 @@
 "use client";
-import "./globals.css";
+// import './globals.css'
 import "@rainbow-me/rainbowkit/styles.css";
 import {
   googleWallet,
@@ -71,7 +71,8 @@ export default function RootLayout({
       <body>
         <WagmiConfig client={wagmiClient}>
           <RainbowKitProvider chains={chains} coolMode>
-            {children}
+            {" "}
+            {children}{" "}
           </RainbowKitProvider>
         </WagmiConfig>
       </body>
