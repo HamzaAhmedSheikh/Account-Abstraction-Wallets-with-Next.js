@@ -1,8 +1,10 @@
-"use client";
+// "use client";
 
 import React from "react";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import Link from "next/link";
+import SocialWallet from "./walletConnector";
+
 
 const Hero = () => {
   return (
@@ -16,7 +18,7 @@ const Hero = () => {
             Concepts, Transactions, Mint NFTs and SocialWallets
           </p>
           <div className="flex flex-col mb-8 lg:mb-16 space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4">
-            <ConnectButton
+            {/* <ConnectButton
               accountStatus={{
                 smallScreen: "avatar",
                 largeScreen: "full",
@@ -25,7 +27,10 @@ const Hero = () => {
                 smallScreen: false,
                 largeScreen: true,
               }}
-            />
+
+
+            /> */}
+            <SocialWallet />
           </div>
           <div className="px-4 mx-auto text-center md:max-w-screen-md lg:max-w-screen-lg lg:px-36 mb-5">
             <div className="block container p-4 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
